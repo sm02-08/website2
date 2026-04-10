@@ -67,10 +67,83 @@ nav .right a span {
     margin-left: 5px; 
 }
 
+/* Section 2 area: skills */ 
+.skills-section { /* notice how you reference the section in html with a class (in this case, "skills-section") so you use it with a "." in CSS */ 
+    padding: 0 50px; /* add some padding to the left and right of the section to match the nav bar */
+    margin-bottom: 100px; /* add some spacing between this section and the next one */
+}
+
+.skills-section h2 { 
+    text-align: center; 
+    font-size: 35px; 
+}
+
+.skills-section .text { 
+    text-align: center; 
+    margin-bottom: 20px; 
+}
+
+.skills-section .cells { /* since there are multiple cells, we make a flexbox */ 
+    display: flex; 
+    justify-content: center; 
+    flex-wrap: wrap; /* this way when the screen gets smaller, the cells will wrap to the next line instead of just getting smaller and smaller */
+}
+
+.skills-section .cells .cell { /* target the cell inside of the cells section </3 */
+    display: flex; /* allows it to shrink and expand with responsiveness and stuff */
+    justify-content: center; 
+    align-items: center; 
+    gap: 10px; /* add some spacing between the icon and the text inside of the cell */
+
+    /* fixed width length etc etc */
+    width: 120px; 
+    height: 50px;
+    padding: 5px 10px; /* reduced padding */
+    margin: 10px; /* add some spacing between the cells */
+    border: 1.5px solid #d3d3d3; /* border out 1px, solid, gray colored */
+    border-radius: 5px; 
+}
+
+.skills-section .cells .cell img { /* these specifically target the logos of the skills--like the logo of html, css, python, and godot */
+    /* the image inside of it will have... */ 
+    width: 30px; 
+    height: 30px;
+    object-fit: cover; /* changed to cover to fill the box uniformly */
+    border-radius: 2px; /* adds smoothing on the edges of the icons */
+    /* border: 1px solid #d3d3d3; /* added border to match the cell */ 
+}
+
+.skills-section .cells .cell span { 
+    font-size: 18px;
+}
+
 /* we want to make the website responsive--adjusting to different screen sizes. increase icon size for smaller screens, make it so that text can auto change, etc. 
 
 we can do that through media queries */
 
+/* a media query that fits max 850 px width screen size */ 
+@media (max-width: 850px) {
+    /* SECTION 1: hero area editing */
+    /* i want to reduce font size of h2 */ 
+    .hero-section .text h2 { 
+        font-size: 35px;
+    }
+}
+
+/* a media query that fits max 740 px width screen size */ 
+@media (max-width: 740px) {
+    /* SECTION 1: hero area editing */
+    /* i want to reduce font size of h2 */ 
+    .hero-section { 
+        flex-direction: column-reverse; 
+    }
+
+    .hero-section .headshot img { 
+        width: 300px;
+    }
+}
+
+/* a media query that fits max 600 px width screen size */ 
 @media (max-width: 600px) { /* any styling will only be applied on 600 px going downwards */
     /* navbar editing */ 
     nav { 
@@ -89,6 +162,15 @@ we can do that through media queries */
 
     nav .right a span { 
         display: none; /* when the screen get small, remove the text from the buttons to leave only the icons */
+    }
+
+    /* section 1: hero area editing */
+    .hero-section { 
+        padding: 0 20px; /* this way when the screen gets reduced in width the padding of the text also gets reduced, as soon as screen size hits 600 px */
+    }
+
+    .hero-section .text h2{ 
+        font-size: 30px; /* font gets smaller when 600 px width */ 
     }
 }
 
